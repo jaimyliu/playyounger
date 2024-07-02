@@ -1,0 +1,35 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+會員註冊
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">新增提醒</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="{{ url_for('frontend.add_remind') }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用戶名稱</label>
+                    <input type="text" class="form-control" id="username" value="{{ user_info.username }}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="date_time" class="form-label">日期</label>
+                    <input type="date" name="date_time" class="form-control" id="date_time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="remind_time" class="form-label">提醒時間</label>
+                    <input type="time" name="remind_time" class="form-control" id="remind_time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="food" class="form-label">藥品</label>
+                    <input type="text" name="food" class="form-control" id="food" placeholder="請輸入藥品名稱" required>
+                </div>
+                <button type="submit" class="btn btn-primary">添加</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

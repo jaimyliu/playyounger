@@ -1,0 +1,147 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+排行榜
+{% endblock %}
+
+
+{% block content %}
+<section id="portfolio">
+	<div class="container">
+		<h1 class="mt-5 mb-4"></h1>
+		
+		<!-- 篩選表單 -->
+		<form id="filterForm">
+			<div class="row align-items-end">
+			  <div class="col-sm-3">
+				<label for="regionSelect" class="form-label">地區：</label>
+				<select class="form-select" id="regionSelect">
+				<option value="">全部</option>
+				<option value="臺北市">臺北市</option>
+				<option value="新北市">新北市</option>
+				<option value="桃園市">桃園市</option>
+				<option value="臺中市">臺中市</option>
+				<option value="臺南市">臺南市</option>
+				<option value="高雄市">高雄市</option>
+				<option value="新竹縣">新竹縣</option>
+				<option value="苗栗縣">苗栗縣</option>
+				<option value="彰化縣">彰化縣</option>
+				<option value="南投縣">南投縣</option>
+				<option value="雲林縣">雲林縣</option>
+				<option value="嘉義縣">嘉義縣</option>
+				<option value="屏東縣">屏東縣</option>
+				<option value="宜蘭縣">宜蘭縣</option>
+				<option value="花蓮縣">花蓮縣</option>
+				<option value="臺東縣">臺東縣</option>
+				<option value="澎湖縣">澎湖縣</option>
+				<option value="金門縣">金門縣</option>
+				<option value="連江縣">連江縣</option>
+				<option value="基隆市">基隆市</option>
+				<option value="新竹市">新竹市</option>
+				<option value="嘉義市">嘉義市</option>
+			  </select>
+			</div>
+			
+			<div class="col-sm-3">
+			  <label for="ageSelect" class="form-label">年齡：</label>
+			  <select class="form-select" id="ageSelect">
+				<option value="">全部</option>
+				<option value="18-25">18-25 歲</option>
+				<option value="26-35">26-35 歲</option>
+				<option value="36-50">36-50 歲</option>
+			  </select>
+			</div>
+			
+			<div class="col-sm-3">
+			  <label for="gameSelect" class="form-label">遊戲名稱：</label>
+			  <select class="form-select" id="gameSelect">
+				<option value="">全部</option>
+				<option value="Game1">遊戲1</option>
+				<option value="Game2">遊戲2</option>
+				<option value="Game3">遊戲3</option>
+			  </select>
+			</div>
+			
+			<div class="col-sm-3">
+			  <button type="submit" class="btn btn-primary">篩選</button>
+			</div>
+		  </div>
+		</form>
+		
+		<!-- 排行榜表格 -->
+		<table class="table table-striped mt-4" id="leaderboardTable">
+		  <thead>
+			<tr>
+				<th scope="col">排名</th>
+				<th scope="col">玩家</th>
+				<th scope="col">地區</th>
+				<th scope="col">年齡</th>
+				<th scope="col">時間</th>
+				<th scope="col">到達關卡</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<!-- 使用從後端傳來的 astray_data -->
+			{% for record in astray_data %}
+			<tr>
+				<th scope="row">{{ loop.index }}</th>
+				<td>{{ record.username }}</td>
+				<td>{{ record.region }}</td>
+				<td>{{ record.age }}</td>
+				<td>{{ record.time }}</td>
+				<td>{{ record.level }}</td>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+	  </div>
+	  
+</section>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("#filterForm");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        const region = document.getElementById('regionSelect').value;
+        const age = document.getElementById('ageSelect').value;
+        const gameName = document.getElementById('gameSelect').value; // 可能您还会用到游戏名的筛选
+
+        // 发送 POST 请求到服务器进行筛选
+        fetch('/filter_rankings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ region, age, gameName }), // 如果后端也处理游戏名筛选，可以加上 gameName
+        })
+        .then(response => response.json())
+        .then(data => {
+            updateLeaderboardTable(data); // 更新页面上的排行榜
+        })
+        .catch(error => console.error('Error:', error));
+    });
+});
+
+function updateLeaderboardTable(data) {
+    const tableBody = document.getElementById('leaderboardTable').querySelector('tbody');
+    tableBody.innerHTML = ''; // 清空现有的表格数据
+    
+    data.forEach((record, index) => {
+        const row = tableBody.insertRow();
+        row.innerHTML = `
+            <th scope="row">${index + 1}</th>
+            <td>${record.username}</td>
+            <td>${record.region}</td>
+            <td>${record.age}</td>
+            <td>${record.time}</td>
+            <td>${record.level}</td>
+        `;
+    });
+}
+</script>
+{% endblock %}

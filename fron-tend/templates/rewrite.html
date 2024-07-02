@@ -1,0 +1,56 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+會員資料修改
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5" style="margin-top: 100px;">
+    <h1 class="text-center mb-4">會員資料修改</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- 表单的 action 指向 update_user 路由 -->
+            <form method="post" action="{{ url_for('frontend.update_user') }}">
+                <input type="hidden" name="user_id" value="{{ user_info.id }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用戶名稱</label>
+                    <!-- 用户名作为不可修改字段显示 -->
+                    <input type="text" name="username" class="form-control" id="username" value="{{ user_info.username }}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="請輸入新密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">確認密碼</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="請再次輸入新密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">性別:</label>
+                    <select id="gender" name="gender" class="form-control" required>
+                        <option value="male" {% if user_info.gender == 'male' %}selected{% endif %}>男性 (Male)</option>
+                        <option value="female" {% if user_info.gender == 'female' %}selected{% endif %}>女性 (Female)</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="region" class="form-label">地區:</label>
+                    <select id="region" name="region" class="form-control" required>
+                        {% for region_option in all_regions %}
+                        <option value="{{ region_option }}" {% if user_info.region == region_option %} selected {% endif %}>
+                            {{ region_option }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">年齡</label>
+                    <input type="number" name="age" class="form-control" id="age" value="{{ user_info.age }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">更新資料</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

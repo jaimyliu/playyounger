@@ -1,0 +1,78 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+會員登入
+{% endblock %}
+
+{% block style %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login/css/styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login/css/Pname.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/socket.io@4.3.1/dist/socket.io.js"></script>
+
+<style>
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .Pname {
+        margin-bottom: 20px; /* 調整間距 */
+    }
+    /* 其他樣式 */
+</style>
+{% endblock %}
+
+{% block content %}
+<script>
+    // 页面加载时执行的操作
+    document.addEventListener("DOMContentLoaded", function() {
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+        
+        // 获取用户名输入框的值
+        var username = document.getElementById("username").value;
+        console.log(document.getElementById("username").value);
+        // 创建包含用户名的对象并发送到后端
+        var data = { 'username': username };
+        socket.emit('login', data);
+    });
+</script>
+
+<body class="ripple-background">
+    <div class="circle xxlarge shade1"></div>
+    <div class="circle xlarge shade2"></div>
+    <div class="circle large shade3"></div>
+    <div class="circle medium shade4"></div>
+    <div class="circle small shade5"></div>
+
+    <div class="login-container">
+        <form id="login-form" action="/login" method="post">
+            <div class="mb-3">
+                <label for="password">帳號:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password">密碼:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="inbuttb">
+                <button type="submit" class="btn btn-primary" value="Login">登入</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="messageout" id="message">
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='login/js/script.js') }}"></script>
+
+</body>
+</html>
+{% endblock %}

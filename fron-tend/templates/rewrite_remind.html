@@ -1,0 +1,36 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+修改提醒
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">修改提醒</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="{{ url_for('frontend.update_remind') }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用戶名稱</label>
+                    <input type="text" class="form-control" id="username" value="{{ remind_data.username }}" disabled>
+                </div>
+                <!-- 这里假设 remind_data 是传入模板的字典，包含了 remind 表中的字段 -->
+                <!-- 每个字段都是一个表单元素，以便更新 -->
+                <div class="mb-3">
+                    <label for="date_time" class="form-label">日期</label>
+                    <input type="date" name="date_time" class="form-control" id="date_time" value="{{ remind_data.date_time }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="remind_time" class="form-label">提醒時間</label>
+                    <input type="time" name="remind_time" class="form-control" id="remind_time" value="{{ remind_data.remind_time }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="food" class="form-label">藥品</label>
+                    <input type="text" name="food" class="form-control" id="food" value="{{ remind_data.food }}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">更新</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

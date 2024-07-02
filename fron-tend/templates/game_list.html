@@ -1,0 +1,67 @@
+{% extends 'base_index.html' %}
+{% block style %}
+.portfolio-item {
+	height: 300px; /* 設置高度 */
+	background-color: #f0f0f0; /* 背景色 */
+	border: 1px solid #ccc; /* 邊框 */
+}
+{% endblock %}
+{% block title %}
+排行榜
+{% endblock %}
+
+
+{% block content %}
+
+<section id="portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<hr class="star-primary">
+			</div> 
+		</div>
+		<div class="row">
+			<div class="col-sm-3 portfolio-item">
+				<a href="/antigolf/" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<img src="static/img/frontend/portfolio/antigolf.png" class="img-responsive" alt="">
+				</a>
+			</div>
+			<div class="col-sm-3 portfolio-item">
+				<a href="/ballgame/" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<img src="static/img/frontend/portfolio/baseball.png" class="img-responsive" alt="">
+				</a>
+			</div>
+			<div class="col-sm-3 portfolio-item">
+				<a href="/Astray/" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<img src="static/img/frontend/portfolio/unnamed.png" class="img-responsive" alt="">
+				</a>
+			</div>
+			<div class="col-sm-3 portfolio-item">
+				<a href="/HexGL/" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<img src="static/img/frontend/portfolio/game.png" class="img-responsive" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

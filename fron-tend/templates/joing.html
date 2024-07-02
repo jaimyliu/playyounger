@@ -1,0 +1,73 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+會員註冊
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-5" style="margin-top: 100px;">
+    <h1 class="text-center mb-4">會員註冊</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="{{ url_for('frontend.register') }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用戶名稱</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="請輸入用戶名稱" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender">性別:</label>
+                    <select id="gender" name="gender" class="form-control" required>
+                        <option value="">請選擇 (Please select)</option>
+                        <option value="male">男性 (Male)</option>
+                        <option value="female">女性 (Female)</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="請輸入密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">確認密碼</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="請再次輸入密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="region">地區:</label>
+                    <select id="region" name="region" class="form-control" required>
+                        <option value="">請選擇 (Please select)</option>
+                        <option value="臺北市">臺北市</option>
+                        <option value="新北市">新北市</option>
+                        <option value="桃園市">桃園市</option>
+                        <option value="臺中市">臺中市</option>
+                        <option value="臺南市">臺南市</option>
+                        <option value="高雄市">高雄市</option>
+                        <option value="新竹縣">新竹縣</option>
+                        <option value="苗栗縣">苗栗縣</option>
+                        <option value="彰化縣">彰化縣</option>
+                        <option value="南投縣">南投縣</option>
+                        <option value="雲林縣">雲林縣</option>
+                        <option value="嘉義縣">嘉義縣</option>
+                        <option value="屏東縣">屏東縣</option>
+                        <option value="宜蘭縣">宜蘭縣</option>
+                        <option value="花蓮縣">花蓮縣</option>
+                        <option value="臺東縣">臺東縣</option>
+                        <option value="澎湖縣">澎湖縣</option>
+                        <option value="金門縣">金門縣</option>
+                        <option value="連江縣">連江縣</option>
+                        <option value="基隆市">基隆市</option>
+                        <option value="新竹市">新竹市</option>
+                        <option value="嘉義市">嘉義市</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">年齡</label>
+                    <input type="text" name="age" class="form-control" id="age" placeholder="請輸入年齡" required>
+                </div>
+                <button type="submit" class="btn btn-primary">註冊</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

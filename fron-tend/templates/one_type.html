@@ -1,0 +1,41 @@
+{% extends 'base_index.html' %}
+
+{% block title %}
+排行榜
+{% endblock %}
+
+
+{% block content %}
+<section id="portfolio">
+	<div class="container" id="home-container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h1>請選擇遊戲種類</h1>
+				<hr class="star-primary">
+			</div> 
+		</div>
+		<div class="row">
+			<div class="col-sm-6 portfolio-item">
+				<a href="/game_list.html" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<img src="static/img/frontend/entertainment.jpg" class="img-responsive" alt="">
+				</a>
+			</div>
+			<div class="col-sm-6 portfolio-item">
+				<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<img src="static/img/frontend/rehabilitation1.jpg" class="img-responsive" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
