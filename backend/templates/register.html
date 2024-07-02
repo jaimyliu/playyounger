@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>註冊</title>
+      
+      <link rel="stylesheet" href="/static/css/backend-plugin.min.css">
+      <link rel="stylesheet" href="/static/css/backend.css">  </head>
+
+  <body class=" ">
+    <div id="loading">
+          <div id="loading-center">
+          </div>
+    </div>
+      <div class="wrapper">
+    <section class="login-content" style="background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ypppt.com%2Fbeijing%2F&psig=AOvVaw3clgTlkr8JFDx7WI-fiMuh&ust=1710429257710000&source=images&cd=vfe&opi=89978449&ved=0CBMQjRxqFwoTCJCp39TD8YQDFQAAAAAdAAAAABAF);background-repeat:  no-repeat; background-size: cover;">
+         <div class="container h-100">
+            <div class="row align-items-center justify-content-center h-100">
+               <div class="col-md-5">
+                  <div class="card p-3">
+                    <div class="card-body">
+                        <div class="auth-logo">
+                           <img src="https://img.zcool.cn/community/018889554bbc73000001bf721d0e92.jpg@1280w_1l_2o_100sh.jpg" class="img-fluid rounded-normal light-logo" alt="logo">
+                        </div>
+                        <h3 class="mb-3 font-weight-bold text-center">註冊</h3>
+                        <p class="text-center text-secondary mb-4">輿情分析-請填寫註冊訊息
+                        </p>
+                        <div class="social-btn d-flex justify-content-around align-items-center mb-4">
+                        </div>
+                        <div class="mb-5">
+                            <p class="line-around text-secondary mb-0"><span class="line-around-1">請輸入註冊訊息</span></p>
+                        </div>
+                        <form method="post" action="/user/register">
+                           <div class="row">
+                              <div class="col-lg-12">
+                                 <div class="form-group">
+                                    <label class="text-secondary">帳號</label>
+                                    <input class="form-control" name="username" type="text" placeholder="請註冊輸入帳號">
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 mt-2">
+                                 <div class="form-group">
+                                     <div class="d-flex justify-content-between align-items-center">
+                                         <label class="text-secondary">密碼</label>
+                                     </div>
+                                    <input class="form-control" name="password" type="password" placeholder="請輸入密碼">
+                                 </div>
+                              </div>
+                              <div class="col-lg-12 mt-2">
+                                 <div class="form-group">
+                                     <div class="d-flex justify-content-between align-items-center">
+                                         <label class="text-secondary">確認密碼</label>
+                                     </div>
+                                    <input class="form-control" name="checkPassword" type="password" placeholder="請再次輸入密碼">
+                                 </div>
+                              </div>
+                           </div>
+                           <button type="submit" class="btn btn-primary btn-block mt-2">註冊</button>
+                           <div class="col-lg-12 mt-3">
+                              <p class="mb-0 text-center">已經擁有帳號進行登入<a href= "/user/login">登入</a></p>
+                                 
+                           </div>
+                        </form>
+                     </div> 
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      </div>
+    <script src="/static/js/backend-bundle.min.js"></script>
+    <script src="/static/js/customizer.js"></script>
+    <script src="/static/js/sidebar.js"></script>
+    <script src="/static/js/flex-tree.min.js"></script>
+    <script src="/static/js/tree.js"></script>
+    <script src="/static/js/table-treeview.js"></script>
+    <script src="/static/js/sweetalert.js"></script>
+    <script src="/static/js/vector-map-custom.js"></script>
+    <script src="/static/js/chart-custom.js"></script>
+    <script src="/static/js/01.js"></script>
+    <script src="/static/js/02.js"></script>
+    <script src="/static/js/slider.js"></script>
+    <script src="/static/js/index.js" type="module"></script>
+    <script src="/static/js/app.js"></script>  </body>
+</html>

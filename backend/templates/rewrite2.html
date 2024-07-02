@@ -1,0 +1,52 @@
+{% extends 'base_page.html' %} 
+
+{% block head %} 
+<style>
+    .tableauPlaceholder {
+        height: 275px !important; /* 設置區塊高度為250px */
+    }
+    .tableauViz {
+        width: 100% !important; /* 圖片寬度100% */
+        height: 100% !important; /* 圖片高度100% */
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container mt-5" style="margin-top: 100px;">
+    <h1 class="text-center mb-4">會員資料修改</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- 表单的 action 指向 update_user 路由 -->
+            <form method="post" action="{{ url_for('backend.update_user') }}">
+                <input type="hidden" name="user_id" value="{{ user_info.id }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用戶名稱</label>
+                    <!-- 用户名作为不可修改字段显示 -->
+                    <input type="text" name="username" class="form-control" id="username" value="{{ user_info.username }}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="請輸入新密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">確認密碼</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="請再次輸入新密碼" required>
+                </div>
+                {% if session.get('permission') != 'user' %}
+                <div class="mb-3">
+                    <label for="permission" class="form-label">會員權限:</label>
+                    <select id="permission" name="permission" class="form-control" required>
+                        <option value="user" {% if user_info.permission == 'user' %}selected{% endif %}>user</option>
+                        <option value="admin" {% if user_info.permission == 'admin' %}selected{% endif %}>admin</option>
+                    </select>
+                </div>
+                {% endif %}
+                <button type="submit" class="btn btn-primary">更新資料</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

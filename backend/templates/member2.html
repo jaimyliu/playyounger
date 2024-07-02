@@ -1,0 +1,47 @@
+{% extends 'base_page.html' %} 
+
+{% block head %} 
+<style>
+    .tableauPlaceholder {
+        height: 275px !important; /* 設置區塊高度為250px */
+    }
+    .tableauViz {
+        width: 100% !important; /* 圖片寬度100% */
+        height: 100% !important; /* 圖片高度100% */
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="container mt-5" style="margin-top: 100px;">
+    <h1 class="text-center mb-4">創建會員</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="{{ url_for('backend.backend_register') }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用戶名稱</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="請輸入用戶名稱" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密碼</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="請輸入密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">確認密碼</label>
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="請再次輸入密碼" required>
+                </div>
+                <div class="mb-3">
+                    <label for="permission">會員權限:</label>
+                    <select id="permission" name="permission" class="form-control" required>
+                        <option value="user">user</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>                
+                <button type="submit" class="btn btn-primary">創建</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

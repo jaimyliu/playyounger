@@ -1,0 +1,22 @@
+{% extends 'base_page.html' %} 
+
+{% block head %} 
+<style>
+    .tableauPlaceholder {
+        height: 275px !important; /* 設置區塊高度為250px */
+    }
+    .tableauViz {
+        width: 100% !important; /* 圖片寬度100% */
+        height: 100% !important; /* 圖片高度100% */
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div id="echarts-container">
+    <!-- 插入所有由 views.py 產生的圖表的 HTML -->
+    {{ time_spent_chart | safe }}
+    {{ motion_magnitude_chart | safe }}
+    {{ motion_scatter_chart | safe }}
+    {{ most_common_direction | safe }}
+</div>
+{% endblock %}
