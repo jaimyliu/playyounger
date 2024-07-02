@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f5f3f2;
+    overflow: hidden;
+  }
+  
+  .wrapper {
+    --text-color: #1a1a1a;
+    position: relative;
+  }
+  .wrapper a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .wrapper a:nth-child(1) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%);
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+  }
+  .wrapper a:nth-child(2) {
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+    clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+  }
+  .wrapper a:nth-child(3) {
+    -webkit-clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+    clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+  }
+  .wrapper a:nth-child(4) {
+    -webkit-clip-path: polygon(0 0, 50% 50%, 0 100%);
+    clip-path: polygon(0 0, 50% 50%, 0 100%);
+  }
+  .wrapper a:hover {
+    -webkit-clip-path: none;
+    clip-path: none;
+    z-index: 2;
+  }
+  .wrapper a:nth-child(1):hover ~ .fill-text:before {
+    --fill-from: circle(0% at 50% 0%);
+    --fill-to: circle(150% at 0% 50%);
+    -webkit-animation: fill-text 1s forwards;
+            animation: fill-text 1s forwards;
+  }
+  /* .wrapper a:nth-child(1):hover ~ .fill-text:after {
+    --hover-text: "You hovered me from top";
+  } */
+  .wrapper a:nth-child(2):hover ~ .fill-text:before {
+    --fill-from: circle(0% at 150% 50%);
+    --fill-to: circle(100% at 50% 50%);
+    -webkit-animation: fill-text 1s forwards;
+            animation: fill-text 1s forwards;
+  }
+  /* .wrapper a:nth-child(2):hover ~ .fill-text:after {
+    --hover-text: "You hovered me from right";
+  } */
+  .wrapper a:nth-child(3):hover ~ .fill-text:before {
+    --fill-from: circle(0% at 50% 100%);
+    --fill-to: circle(150% at 0% 50%);
+    -webkit-animation: fill-text 1s forwards;
+            animation: fill-text 1s forwards;
+  }
+  /* .wrapper a:nth-child(3):hover ~ .fill-text:after {
+    --hover-text: "You hovered me from bottom";
+  } */
+  .wrapper a:nth-child(4):hover ~ .fill-text:before {
+    --fill-from: circle(0% at 0% 50%);
+    --fill-to: circle(150% at 0% 50%);
+    -webkit-animation: fill-text 1s forwards;
+            animation: fill-text 1s forwards;
+  }
+  /* .wrapper a:nth-child(4):hover ~ .fill-text:after {
+    --hover-text: "You hovered me from left";
+  } */
+  
+  @-webkit-keyframes fill-text {
+    0% {
+      -webkit-clip-path: var(--fill-from);
+              clip-path: var(--fill-from);
+    }
+    100% {
+      -webkit-clip-path: var(--fill-to);
+              clip-path: var(--fill-to);
+      color: var(--text-color);
+    }
+  }
+  
+  @keyframes fill-text {
+    0% {
+      -webkit-clip-path: var(--fill-from);
+              clip-path: var(--fill-from);
+    }
+    100% {
+      -webkit-clip-path: var(--fill-to);
+              clip-path: var(--fill-to);
+      color: var(--text-color);
+    }
+  }
+  .fill-text {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-color);
+    text-stroke: 1px var(--text-color);
+    font-size: 30px;
+    font-family: "cardo", serif;
+  }
+  .fill-text:before {
+    content: attr(data-text);
+    position: absolute;
+  }
+  .fill-text:after {
+    /* --hover-text: "Hover me!"; */
+    content: var(--hover-text);
+    -webkit-text-stroke: initial;
+    text-stroke: initial;
+    font: 2.5vw/1.5 verdana;
+    color: #999;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    white-space: nowrap;
+  }
+
+.profile {
+    display: none;
+  }
+  
+.profile:target {
+    display: block;
+  }
+.profilebunnt{
+  position: fixed; /* 設置定位方式為絕對定位 */
+  top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+  left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+  transform: translate(-40%, 400%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+  font-size: 1rem;
+  white-space: nowrap; /* 防止文本換行 */
+}  

@@ -1,0 +1,159 @@
+.Pname{
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-90%, -300%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 200px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+    font-size: 5rem;
+    white-space: nowrap; /* 防止文本換行 */
+    
+}
+
+
+.lname{
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-40%, 250%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 200px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+    font-size: 0.5rem;
+    white-space: nowrap; /* 防止文本換行 */
+    
+}
+
+
+
+
+.dexwrapper {
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-20%, 100%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 100px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+
+}
+
+
+.rexwrapper{
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-30%, 150%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 100px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+}
+
+.inbuttb{
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-10%, 30%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 100px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+}
+
+
+.rebuttn{
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-10%, 80%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 100px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+}
+
+.messageout {
+    position: fixed; /* 設置定位方式為絕對定位 */
+    top: 50%; /* 設置元素頂部距離父元素頂部的距離為父元素高度的一半 */
+    left: 50%; /* 設置元素左側距離父元素左側的距離為父元素寬度的一半 */
+    transform: translate(-100%, -50%); /* 使用transform屬性將元素向左和向上移動自身寬度和高度的一半，以使其置中 */
+    width: 100px; /* 設置元素寬度為200像素 */
+    height: 100px; /* 設置元素高度為100像素 */
+    white-space: nowrap; /* 防止文本換行 */
+    z-index: -10;
+}
+
+body{
+    background: #3399ff;
+  }
+  
+  
+  .circle{
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: ripple 15s infinite;
+    box-shadow: 0px 0px 1px 0px #508fb9;
+  }
+  
+  .small{
+    width: 200px;
+    height: 200px;
+    left: -100px;
+    bottom: -100px;
+  }
+  
+  .medium{
+    width: 400px;
+    height: 400px;
+    left: -200px;
+    bottom: -200px;
+  }
+  
+  .large{
+    width: 600px;
+    height: 600px;
+    left: -300px;
+    bottom: -300px;
+  }
+  
+  .xlarge{
+    width: 800px;
+    height: 800px;
+    left: -400px;
+    bottom: -400px;
+  }
+  
+  .xxlarge{
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    bottom: -500px;
+  }
+  
+  .shade1{
+    opacity: 0.2;
+  }
+  .shade2{
+    opacity: 0.5;
+  }
+  
+  .shade3{
+    opacity: 0.7;
+  }
+  
+  .shade4{
+    opacity: 0.8;
+  }
+  
+  .shade5{
+    opacity: 0.9;
+  }
+  
+  @keyframes ripple{
+    0%{
+      transform: scale(0.8);
+    }
+    
+    50%{
+      transform: scale(1.2);
+    }
+    
+    100%{
+      transform: scale(0.8);
+    }
+  }
+  
